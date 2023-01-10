@@ -1,4 +1,5 @@
 import {ApolloClient, createHttpLink, InMemoryCache} from "@apollo/client";
+import Config from "../../config";
 
 const defaultOptions = {
 	watchQuery: {
@@ -16,7 +17,7 @@ const cache = new InMemoryCache({
 });
 
 const link = createHttpLink({
-	uri: "https://anciently.net/graphql"
+	uri: Config.GRAPHQL_ENDPOINT,
 })
 
 const client = new ApolloClient({

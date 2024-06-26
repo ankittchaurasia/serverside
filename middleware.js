@@ -21,7 +21,7 @@ export async function middleware(req, ev) {
             if (req.nextUrl.searchParams.get('fbclid') || referer.includes('facebook.com')) {
                 return NextResponse.redirect(data.link)
             }else{   
-                url.pathname = '/post/2023/02/14/'+data.slug
+                url.pathname = `/client/${new Date(data.date).toLocaleDateString('en-GB')}/${data.slug}`;
                 url.search = ''
                 return NextResponse.redirect(url)
             }
